@@ -6,7 +6,10 @@
     <title>Nathalie Mota - Photographe Freelance</title>
     <?php wp_head(); ?>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/theme.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,500;1,400;1,500&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+
 </head>
 <body>
 
@@ -29,15 +32,16 @@
         ]);
         ?>
         <button id="open-modal-button-header">CONTACT</button>
-
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-                <span class="close">x</span>
-                <!-- Add the Contact Form 7 shortcode here -->
-                <?php echo do_shortcode('[contact-form-7 id="39c84cd" title="Contact"]'); ?>
-            </div>
-        </div>
     </nav>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal Content -->
+        <div class="modal-content">
+            <span class="close">X</span>
+            <img src="<?php echo wp_get_attachment_url(34); ?>" alt="Contact" />
+            <!-- Contact Form 7 Shortcode -->
+            <?php echo do_shortcode('[contact-form-7 id="39c84cd" title="Contact"]'); ?>
+        </div>
+    </div>
 </header>
