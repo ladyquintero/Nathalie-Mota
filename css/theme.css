@@ -1,10 +1,9 @@
-
+/* Global Styles */
 body {
     margin-top: 90px;
 }
 
-/* HEADER */
-
+/* Header Styles */
 header {
     position: fixed;
     top: 0;
@@ -16,7 +15,7 @@ header {
     padding: 20px;
     background-color: #fff;
     box-shadow: 0px 4px 14px 10px #00000008;
-    z-index: 1000; /* Ensure it stays on top */
+    z-index: 1000;
 }
 
 .header-logo img {
@@ -66,16 +65,20 @@ header {
 
 #open-modal-button-header:hover,
 .header-menu li a:hover,
-.footer-menu a:hover,
-.close:hover { 
+.footer-menu a:hover {
+    font-family: Space Mono;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.close:hover {
     text-decoration: underline;
 }
 
 /* FOOTER */
-
 .footer-menu {
-    text-align: center; 
-    margin-top: 20px; 
+    text-align: center;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,49 +88,83 @@ header {
 
 .footer-menu li {
     margin: 0 15px;
+    display: inline; /* Mantenemos la visualización en línea para la versión de escritorio */
 }
 
 .footer-menu a {
     text-decoration: none;
-    padding-top: 5px; 
+    padding-top: 5px;
 }
 
-/* Media query for mobile screens */
-@media screen and (max-width: 768px) {
+/* Estilos para la versión móvil */
+@media screen and (max-width: 767px) {
     .footer-menu {
-        flex-direction: column; /* Items will be aligned vertically */
+        text-align: center;
+        margin-top: 20px;
+        padding-top: 10px;
     }
-    
+
+    .footer-menu ul {
+        list-style-type: none; /* Elimina los puntos de lista */
+        padding: 0;
+    }
+
     .footer-menu li {
-        margin: 10px 0; /* Increase the vertical spacing between items */
+        margin: 10px 0;
+        text-align: center; /* Centramos el texto en la versión móvil */
     }
 }
 
-/* MODALE - CONTACT */
 
+/* Animation and Modal Styles */
+@-webkit-keyframes animatetop {
+    from {
+        top: 0;
+        opacity: 1;
+    }
+
+    to {
+        top: 50%;
+        opacity: 1;
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: 0;
+        opacity: 1;
+    }
+
+    to {
+        top: 50%;
+        opacity: 1;
+    }
+}
+
+/* Modal Styles */
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%; 
-    background-color: rgba(0, 0, 0, 0.822); 
-    overflow: auto; 
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.822);
+    overflow: auto;
 }
 
-/* CONTENU MODALE */
-
+/* Modal Content Styles */
 .modal-content {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: auto; /* Let the content size determine width */
-    height: auto; /* Let the content size determine height */
+    width: auto;
+    max-width: 80%;
+    height: auto;
     background-color: #fff;
-    padding: 0; /* Remove padding */
+    padding: 20px;
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.8s;
     animation-name: animatetop;
@@ -136,19 +173,21 @@ header {
 }
 
 .modal-content img {
+    display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
     margin-top: 10px;
-    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
-/* BOUTON FERMER - MODALE CONTACT */
 
+/* Close Button Styles */
 .close {
-        position: absolute;
-        top: 20px;
-        right: 10px;
-        font-size: 24px;
-        cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
 }
 
 .close:focus {
@@ -157,19 +196,14 @@ header {
     cursor: pointer;
 }
 
-/* ANIMATION MODALE CONTACT */
-@-webkit-keyframes animatetop {
-    from {top: 0; opacity: 1}
-    to {top: 50%; opacity: 1}
+/* Media Query for Modal */
+@media (max-width: 768px) {
+    .modal-content {
+        max-width: 95%;
+    }
 }
 
-@keyframes animatetop {
-    from {top: 0; opacity: 1}
-    to {top: 50%; opacity: 1}
-}
-
-
-/* FORMULAIRE - CONTACT */
+/* Contact Form Styles */
 form {
     display: flex;
     flex-direction: column;
@@ -178,13 +212,16 @@ form {
     margin: 0 auto;
 }
 
-/* BORD LABELS */
-input[type=email], input[type=text], select, textarea {
+/* Label Borders Styles */
+input[type=email],
+input[type=text],
+select,
+textarea {
     border: none;
     border-radius: 7px;
 }
 
-/* BOUTON ENVOYER */
+/* Send Button Styles */
 input[type=submit] {
     display: block;
     width: 263px;
@@ -205,12 +242,12 @@ input[type=submit] {
     color: #000000;
 }
 
-/* BOUTON ENVOYER - HOVER */
+/* Send Button Hover Styles */
 input[type=submit]:hover {
-    background-color: #cccaca; /* Set your desired hover color */
+    background-color: #cccaca;
 }
 
-/* ERROR MESSAGES */
+/* Error Message Styles */
 .wpcf7-not-valid-tip {
     color: #B8BBC2;
 }
@@ -219,14 +256,14 @@ input[type=submit]:hover {
 .wpcf7 form.unaccepted .wpcf7-response-output,
 .wpcf7 form.payment-required .wpcf7-response-output,
 .wpcf7 form .wpcf7-response-output {
-    color: #65676d; 
+    color: #65676d;
     font-family: Poppins;
     font-size: 14px;
     background-color: transparent;
     border: none;
 }
 
-/* LABELS */
+/* Label Styles */
 .wpcf7 input[type="text"],
 .wpcf7 input[type="email"],
 .wpcf7 textarea {
@@ -238,7 +275,7 @@ input[type=submit]:hover {
     padding: 5px 10px;
 }
 
-/* TEXT LABELS */
+/* Text Label Styles */
 .wpcf7 input[type="text"],
 .wpcf7 input[type="email"],
 .wpcf7 textarea,
@@ -251,8 +288,139 @@ input[type=submit]:hover {
     text-align: left;
 }
 
-/* MESSAGE LABEL */
+/* Message Label Styles */
 .wpcf7 textarea[name="your-message"] {
-    height: 190px; /* Set your desired height */
+    height: 190px;
+}
+
+/* Mobile Menu Button Styles */
+.mobile-menu-button {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.bar {
+    display: block;
+    width: 27.42px;
+    height: 2px;
+    margin: 5px auto;
+    background-color: #000;
+    transition: 0.4s;
+}
+
+/* Media Query for Mobile Version */
+@media (max-width: 768px) {
+    .mobile-menu-button {
+        display: block;
+    }
+
+    .header-menu {
+        display: none;
+    }
+
+    /* Agrega estos estilos para el menú a pantalla completa */
+    .mobile-menu-opened .header-menu {
+        display: block;
+        background-color: #fff;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 10px;
+        box-shadow: 0px 4px 14px 10px #00000008;
+        z-index: 1000;
+        overflow-y: auto; /* Para habilitar el desplazamiento si el menú es largo */
+    }
+
+    /* Estilos para el botón de cierre en la versión mobile */
+    .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        color: #000;
+    }
+}
+
+/* Media Query para la versión mobile */
+@media (max-width: 768px) {
+    /* Estilos para el menú a pantalla completa en la versión móvil */
+    .mobile-menu-opened .header-menu {
+        background: #E00000; /* Color de fondo */
+        height: 100vh; /* Usar la altura completa de la pantalla */
+        left: 0;
+        top: 0;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Alinea verticalmente en el centro */
+        align-items: center; /* Alinea horizontalmente en el centro */
+        padding: 20px;
+        overflow-y: auto;
+    }
+
+    /* Estilos para los elementos del menú en la versión móvil */
+    .header-menu li a,
+    #open-modal-button-header {
+        font-family: 'Space Mono';
+        font-weight: 400;
+        font-size: 44px;
+        line-height: 65px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        display: block;
+        margin-bottom: 20px;
+        transition: font-weight 0.3s ease; /* Transición para el cambio de grosor */
+    }
+
+    /* Cambia el grosor del texto en hover */
+    .header-menu li a:hover,
+    #open-modal-button-header:hover {
+        font-size: 44px;
+        font-weight: 600; /* Cambia el grosor en hover */
+    }
+
+    /* Estilos para el botón de cierre en la versión móvil */
+    .close-button {
+        color: #FFFFFF;
+        font-size: 24px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    /* Estilos para el fondo de pantalla cuando se abre el menú en móvil */
+    body.mobile-menu-opened {
+        background: rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Estilos para espaciar los elementos del menú verticalmente */
+    .header-menu li {
+        margin-bottom: 20px;
+    }
+}
+
+/* Estilos para la versión desktop */
+@media (min-width: 769px) {
+    /* Oculta el botón de cierre */
+    .close-button {
+        display: none;
+    }
+}
+
+/* Estilos para la versión mobile */
+@media (max-width: 768px) {
+    /* Muestra el botón de cierre solo en la versión móvil */
+    .close-button {
+        display: block;
+    }
+
+    
 }
 
