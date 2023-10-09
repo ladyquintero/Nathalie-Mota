@@ -37,6 +37,15 @@
         
         <nav class="header-menu">
             <div class="close-button-container">
+            <div class="logo-container">
+                <?php
+                $custom_logo_id = get_theme_mod('custom_logo');
+                $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
+                ?>
+                <a href="<?php echo home_url(); ?>">
+                    <img src="http://localhost/nathalie-mota/wp-content/uploads/2023/09/logo-motaphoto.png" alt="Logo">
+                </a>
+            </div>
                 <button id="close-fullscreen-menu-button" class="close-button">X</button>
             </div>
             <?php

@@ -8,6 +8,5 @@
     </div>
 
     <footer class="entry-footer">
-        <!-- You can add post-specific footer content here -->
     </footer>
 </article>

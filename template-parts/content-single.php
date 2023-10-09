@@ -3,7 +3,6 @@
         <?php the_content(); ?>
     </div>
     <footer class="entry-footer">
-        <!-- You can add any post-specific footer content here -->
     </footer>
 </article>
 
