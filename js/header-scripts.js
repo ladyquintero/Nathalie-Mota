@@ -1,11 +1,11 @@
 // MENU BURGER
 $('#open-fullscreen-menu-button').click(function(e) {
-    e.stopPropagation(); // Stop event propagation to prevent the close event
+    e.stopPropagation(); // Empêche la propagation de l'événement pour éviter la fermeture
     $('header').toggleClass('mobile-menu-opened');
     console.log('BOUTON CLIQUÉ!');
 });
 
-// FERMER MENU - CLICK BUTTON CLOSE
+// FERMER MENU - CLIQUER SUR LE BOUTON DE FERMETURE
 $('#close-fullscreen-menu-button').click(function() {
     $('header').removeClass('mobile-menu-opened');
     console.log('MENU FERMÉ!');

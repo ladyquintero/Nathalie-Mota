@@ -8,7 +8,7 @@
     <meta name="keywords" content="Photo Event">
     <meta name="author" content="Lady Quintero">
     
-    <!-- Include your CSS files here -->
+    <!-- Inclure vos fichiers CSS ici -->
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/theme.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
@@ -17,7 +17,9 @@
     <?php wp_head(); ?>
 </head>
 <body>
+    <!-- Section d'en-tête -->
     <header>
+        <!-- Logo de l'en-tête -->
         <div class="header-logo">
             <?php
             $custom_logo_id = get_theme_mod('custom_logo');
@@ -28,27 +30,30 @@
             </a>
         </div>
 
-        <!-- Agrega el botón de hamburguesa -->
+        <!-- Ajoute le bouton de menu mobile -->
         <div class="mobile-menu-button" id="open-fullscreen-menu-button">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </div>
         
+        <!-- Menu de l'en-tête -->
         <nav class="header-menu">
             <div class="close-button-container">
-            <div class="logo-container">
-                <?php
-                $custom_logo_id = get_theme_mod('custom_logo');
-                $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
-                ?>
-                <a href="<?php echo home_url(); ?>">
-                    <img src="http://localhost/nathalie-mota/wp-content/uploads/2023/09/logo-motaphoto.png" alt="Logo">
-                </a>
-            </div>
+                <!-- Conteneur du logo -->
+                <div class="logo-container">
+                    <?php
+                    $custom_logo_id = get_theme_mod('custom_logo');
+                    $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
+                    ?>
+                    <a href="<?php echo home_url(); ?>">
+                        <img src="http://localhost/nathalie-mota/wp-content/uploads/2023/09/logo-motaphoto.png" alt="Logo">
+                    </a>
+                </div>
                 <button id="close-fullscreen-menu-button" class="close-button">X</button>
             </div>
             <?php
+            // Affiche le menu de navigation
             wp_nav_menu([
                 'theme_location' => 'main-menu',
                 'container'      => false
@@ -57,6 +62,5 @@
             <?php include get_template_directory() . '/template-parts/contact-modal.php'; ?>
         </nav>
     </header>
-
-
-
+</body>
+</html>

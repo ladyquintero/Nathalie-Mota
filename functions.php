@@ -12,14 +12,15 @@ function register_footer_menu() {
 }
 add_action( 'after_setup_theme', 'register_footer_menu' );
 
-// Ajouter - Styles (Theme - Single Photo)
+// Ajouter - Styles (Theme - Single Photo - Accueil)
 function enqueue_custom_styles() {
     wp_enqueue_style('custom-theme-css', get_template_directory_uri() . '/css/theme.css', array(), '1.0', 'all');
     wp_enqueue_style('custom-single-photo-css', get_template_directory_uri() . '/css/single-photo.css', array(), '1.0', 'all');
+    wp_enqueue_style('custom-index-css', get_template_directory_uri() . '/css/index.css', array(), '1.0', 'all');
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_styles');
 
-// Ajouter - Scripts (Modales - Menu burger)
+// Ajouter - Scripts (Modales Accueil - SinglePhotoPage - Menu Burger)
 function enqueue_custom_scripts() {
     wp_enqueue_script('header-scripts', get_template_directory_uri() . '/js/header-scripts.js', array('jquery'), '1.0', true);
     wp_enqueue_script('modal-scripts', get_template_directory_uri() . '/js/modal-scripts.js', array('jquery'), '1.0', true);

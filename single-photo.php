@@ -21,6 +21,14 @@ get_header();
 
                 // Catégories de la photo
                 $categories = get_the_terms(get_the_ID(), 'categorie');
+                $current_category_slugs = array(); // Définissez la variable ici
+
+                if ($categories) {
+                    foreach ($categories as $category) {
+                        $current_category_slugs[] = $category->slug;
+                    }
+                }
+
                 if ($categories) {
                     echo '<p>Catégorie : ';
                     $category_names = array();
@@ -136,6 +144,48 @@ get_header();
                 </a>
             </div>
 
+        </div>
+    </div>
+    <!-- Section Photos Apparentées -->
+    <div class="related-images">
+        <h3>VOUS AIMEREZ AUSSI</h3>
+        <div class="image-container">
+            <?php
+            // Query two random photos from the same category
+            $args_related_photos = array(
+                'post_type' => 'photo',
+                'posts_per_page' => 2,
+                'orderby' => 'rand',
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'categorie',
+                        'field' => 'slug',
+                        'terms' => $current_category_slugs, // Utilisez le slug de la catégorie actuelle de la photo
+                    ),
+                ),
+            );
+
+            $related_photos_query = new WP_Query($args_related_photos);
+
+            while ($related_photos_query->have_posts()) :
+                $related_photos_query->the_post();
+            ?>
+                <div class="related-image">
+                    <a href="<?php the_permalink(); ?>">
+                        <?php if (has_post_thumbnail()) : ?>
+                            <div class="image-wrapper">
+                                <?php the_post_thumbnail(); ?>
+                            </div>
+                        <?php endif; ?>
+                    </a>
+                </div>
+            <?php endwhile; ?>
+
+            <?php wp_reset_postdata(); // Restaurez les données de publication d'origine ?>
+        </div>
+        <!-- Ajoutez le bouton pour la page d'accueil -->
+        <div class="home-button">
+            <a href="<?php echo home_url(); ?>" class="button">Toutes les photos</a>
         </div>
     </div>
 </main>

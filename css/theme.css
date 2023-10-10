@@ -1,10 +1,10 @@
-/* GLOBAL */
+/* Styles | Global */
 body {
     margin-top: 90px;
     background-color: #FFFFFF;
 }
 
-/* HEADER */
+/* Styles | Header */
 header {
     position: fixed;
     top: 0;
@@ -19,24 +19,26 @@ header {
     z-index: 1000;
 }
 
+/* Styles | Logo Header */
 .header-logo img {
     max-width: 300px;
 }
 
-
+/* Styles | Logo Container */
 .logo-container img {
     padding-left: 21px;
     padding-top: 35px;
     width: 212px;
 }
 
-
+/* Styles | Header Menu */
 .header-menu {
     display: flex;
     align-items: center;
     padding: 0;
 }
 
+/* Styles | Header & Footer Menu Liens */
 .header-menu li a,
 .footer-menu li a,
 #open-modal-button-header,
@@ -51,6 +53,7 @@ header {
     text-align: left;
 }
 
+/* Styles | Header & Footer Menu Listes */
 .header-menu ul,
 .footer-menu ul {
     list-style: none;
@@ -59,11 +62,13 @@ header {
     display: flex;
 }
 
+/* Styles | Header & Footer Menu Liste Items */
 .header-menu li,
 .footer-menu li {
     margin-right: 20px;
 }
 
+/* Styles | Header & Footer Button Styles */
 #open-modal-button-header,
 #open-modal-button-footer {
     background-color: transparent;
@@ -72,6 +77,7 @@ header {
     cursor: pointer;
 }
 
+/* Styles | Hover Styles for Buttons & Liens */
 #open-modal-button-header:hover,
 .header-menu li a:hover,
 .footer-menu a:hover {
@@ -80,12 +86,13 @@ header {
     font-weight: 700;
 }
 
+/* Styles | Hover Styles for Close Buttons */
 .close:hover,
 .close-button:hover {
     text-decoration: underline;
 }
 
-/* FOOTER */
+/* Styles | FOOTER */
 .footer-menu {
     text-align: center;
     margin-top: 20px;
@@ -96,17 +103,19 @@ header {
     padding-top: 10px;
 }
 
+/* Styles | Footer Menu List Items */
 .footer-menu li {
     margin: 0 15px;
     display: inline;
 }
 
+/* Styles | Footer Menu Liens */
 .footer-menu a {
     text-decoration: none;
     padding-top: 5px;
 }
 
-/* MOBILE - FOOTER */
+/* Styles | MOBILE - FOOTER */
 @media screen and (max-width: 767px) {
     .footer-menu {
         display: flex;
@@ -128,8 +137,7 @@ header {
     }
 }
 
-
-/* ANIMATION MODALE */
+/* Styles | Animation for Modal */
 @-webkit-keyframes animatetop {
     from {
         top: 0;
@@ -154,7 +162,7 @@ header {
     }
 }
 
-/* MODALE */
+/* Styles | MODALE */
 .modal {
     display: none;
     position: fixed;
@@ -167,7 +175,7 @@ header {
     overflow: auto;
 }
 
-/* MODALE - CONTENU */
+/* Styles | MODALE - CONTENU */
 .modal-content {
     position: fixed;
     top: 50%;
@@ -185,6 +193,7 @@ header {
     animation-timing-function: ease;
 }
 
+/* Styles | Image Styles Inside Modal Content */
 .modal-content img {
     display: block;
     width: 100%;
@@ -194,7 +203,7 @@ header {
     margin-right: auto;
 }
 
-/* BOUTON FERMER - MODALE */
+/* Styles | Close Button Styles */
 .close {
     position: absolute;
     top: 20px;
@@ -209,14 +218,14 @@ header {
     cursor: pointer;
 }
 
-/* MOBILE - MODALE */
+/* Styles | MOBILE - MODALE */
 @media (max-width: 768px) {
     .modal-content {
         max-width: 95%;
     }
 }
 
-/* CONTACT FORM 7 */
+/* Styles | Styles for Contact Form 7 */
 form {
     display: flex;
     flex-direction: column;
@@ -225,7 +234,7 @@ form {
     margin: 0 auto;
 }
 
-/* CONTACT - LABELs */
+/* Styles | Contact Form 7 Input Styles */
 input[type=email],
 input[type=text],
 select,
@@ -234,7 +243,7 @@ textarea {
     border-radius: 7px;
 }
 
-/* CONTACT - BOUTON ENVOYER */
+/* Styles | Contact Form 7 Submit Button Styles */
 input[type=submit] {
     display: block;
     width: 263px;
@@ -255,16 +264,17 @@ input[type=submit] {
     color: #000000;
 }
 
-/* CONTACT - BOUTON ENVOYER - HOVER */
+/* Styles | Contact Form 7 Submit Button Hover Styles */
 input[type=submit]:hover {
     background-color: #cccaca;
 }
 
-/* CONTACT - MESSAGES ERREUR */
+/* Styles | Contact Form 7 Error Messages */
 .wpcf7-not-valid-tip {
     color: #B8BBC2;
 }
 
+/* Styles | Contact Form 7 Response Output Styles */
 .wpcf7 form.invalid .wpcf7-response-output,
 .wpcf7 form.unaccepted .wpcf7-response-output,
 .wpcf7 form.payment-required .wpcf7-response-output,
@@ -276,7 +286,7 @@ input[type=submit]:hover {
     border: none;
 }
 
-/* LABELS */
+/* Styles | Labels for Contact Form 7 */
 .wpcf7 input[type="text"],
 .wpcf7 input[type="email"],
 .wpcf7 textarea {
@@ -288,6 +298,7 @@ input[type=submit]:hover {
     padding: 5px 10px;
 }
 
+/* Styles | Label Styles for Contact Form 7 */
 .wpcf7 input[type="text"],
 .wpcf7 input[type="email"],
 .wpcf7 textarea,
@@ -300,13 +311,12 @@ input[type=submit]:hover {
     text-align: left;
 }
 
-/* LABEL - MESSAGE */
+/* Styles | Message Label Style for Contact Form 7 */
 .wpcf7 textarea[name="your-message"] {
     height: 190px;
 }
 
-/* MOBILE - BOUTON BURGER*/
-
+/* Styles | MOBILE - BURGER BUTTON */
 .mobile-menu-button {
     display: none;
     cursor: pointer;
@@ -322,8 +332,7 @@ input[type=submit]:hover {
     transition: 0.4s;
 }
 
-/* MOBILE - MENU */
-
+/* Styles | MOBILE - MENU */
 @media (max-width: 768px) {
     .mobile-menu-button {
         display: block;
@@ -448,4 +457,3 @@ input[type=submit]:hover {
         display: none;
     }
 }
-
