@@ -63,6 +63,7 @@ header {
 }
 
 /* Styles | Header & Footer Menu Liste Items */
+
 .header-menu li,
 .footer-menu li {
     margin-right: 20px;
@@ -115,12 +116,13 @@ header {
     padding-top: 5px;
 }
 
-/* Styles | MOBILE - FOOTER */
+//* Styles | MOBILE - FOOTER */
 @media screen and (max-width: 767px) {
     .footer-menu {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
         flex-direction: column;
         margin-top: 20px;
         padding-top: 10px;
@@ -136,6 +138,7 @@ header {
         text-align: center;
     }
 }
+
 
 /* Styles | Animation for Modal */
 @-webkit-keyframes animatetop {
@@ -415,6 +418,10 @@ input[type=submit]:hover {
         color: #FFFFFF;
         margin-bottom: 20px;
         transition: font-weight 0.3s ease;
+    }
+
+    .header-menu li {
+    margin-right: -3px;
     }
 
     .header-menu li a:hover,

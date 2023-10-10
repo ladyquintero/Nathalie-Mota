@@ -1,0 +1,46 @@
+/* Styles | Section CPT Thumbnails */
+.custom-post-thumbnails {
+    max-width: 1126px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Styles | Container CPT Thumbnails */
+.thumbnail-container-accueil {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Styles | Individual CPT Thumbnail */
+.custom-post-thumbnail {
+    flex-basis: calc(50% - 10px); /* Two columns with a 10px gap in between */
+    margin-bottom: 20px;
+}
+
+/* Styles | Thumbnail Image Wrapper */
+.thumbnail-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 100%;
+}
+
+/* Styles | Thumbnail Image */
+.thumbnail-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Styles | View All Button Container */
+.view-all-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}

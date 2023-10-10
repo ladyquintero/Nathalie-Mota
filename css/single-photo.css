@@ -93,6 +93,14 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        text-align: center;
+    }
+    .left-contact .texte-contact,
+    .left-contact div {
+        width: 100%;
+    }
+    .zone-contact {
+        justify-content: center;
     }
 }
 
@@ -110,7 +118,7 @@
     align-content: center;
     flex: 1;
     position: relative;
-    max-width: 50%;
+    max-width: 49%;
     height: auto;
 }
 
@@ -127,7 +135,7 @@
     align-items: center;
     justify-content: space-between;
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 }
 
 /* Styles | Titre dans la partie gauche */
@@ -195,6 +203,7 @@
     .left-contact {
         flex-direction: column;
         align-items: center;
+        max-width: 65%;
     }
 
     .left-contact .texte-contact,
@@ -216,6 +225,7 @@
 
 /* Styles | Flèches de navigation */
 @media (max-width: 768px) {
+    .right-contact,
     .prev-photo,
     .next-photo {
       display: none;
