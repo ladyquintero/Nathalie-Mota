@@ -8,13 +8,13 @@
     <meta name="keywords" content="Photo Event">
     <meta name="author" content="Lady Quintero">
     
-    <!-- Inclure vos fichiers CSS ici -->
+    <!-- Fichiers CSS ici -->
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/theme.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <?php wp_head(); ?>
+    <?php wp_head(); // Ajoute | Scripts & Styles WordPress à l'en-tête ?>
 </head>
 <body>
     <!-- Section d'en-tête -->
@@ -30,7 +30,7 @@
             </a>
         </div>
 
-        <!-- Ajoute le bouton de menu mobile -->
+        <!-- Bouton | Menu Mobile -->
         <div class="mobile-menu-button" id="open-fullscreen-menu-button">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -53,13 +53,13 @@
                 <button id="close-fullscreen-menu-button" class="close-button">X</button>
             </div>
             <?php
-            // Affiche le menu de navigation
+            // Affiche | Menu de navigation en utilisant un emplacement de thème nommé 'main-menu'
             wp_nav_menu([
                 'theme_location' => 'main-menu',
                 'container'      => false
             ]);
             ?>
-            <?php include get_template_directory() . '/template-parts/contact-modal.php'; ?>
+            <?php include get_template_directory() . '/template-parts/contact-modal.php'; // Inclut un fichier externe de modal de contact ?>
         </nav>
     </header>
 </body>

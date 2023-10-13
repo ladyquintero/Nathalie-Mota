@@ -16,7 +16,7 @@
 
 /* Styles | Individual CPT Thumbnail */
 .custom-post-thumbnail {
-    flex-basis: calc(50% - 10px); /* Two columns with a 10px gap in between */
+    flex-basis: calc(50% - 10px); /* Deux colonnes - Espace de 10px */
     margin-bottom: 20px;
 }
 
@@ -37,10 +37,75 @@
     object-fit: cover;
 }
 
-/* Styles | View All Button Container */
+/* Styles | Overlay and Icons */
+.thumbnail-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s;
+}
+
+.thumbnail-wrapper:hover .thumbnail-overlay {
+    opacity: 1;
+}
+
+.thumbnail-overlay img {
+    width: 46px;
+    height: 32px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.fullscreen-icon {
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Styles | Voir toutes - Button Container */
 .view-all-button {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+}
+
+/* Styles | Bouton de la page d'accueil */
+#load-more-posts {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 272px;
+    height: 50px;
+    background-color: #D8D8D8;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 2px;
+    font-weight: bold;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+    font-family: Space Mono;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 17.77px;
+    letter-spacing: 0em;
+    text-align: center;
+    border: none;
+    margin-top: 20px;
+}
+
+#load-more-posts:hover {
+    color: #ffffff;
+    background-color: #000000;
 }
