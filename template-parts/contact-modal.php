@@ -1,7 +1,7 @@
-<!-- Bouton Contact Modal -->
+<!-- Bouton Contact Modale - Header -->
 <button id="open-modal-button-header">CONTACT</button>
 
-<!-- Modal -->
+<!-- Modale - Header -->
 <div id="myModal" class="modal">
     <!-- Modal Content -->
     <div class="modal-content">

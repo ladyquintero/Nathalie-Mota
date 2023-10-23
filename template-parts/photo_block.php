@@ -1,12 +1,15 @@
 <!-- Section | Miniatures Personnalisées -->
 <div class="custom-post-thumbnails">
+    <input type="hidden" name="page" value="1">
     <div class="thumbnail-container-accueil">
         <?php
         // Arguments | Requête pour les publications personnalisées
         $args_custom_posts = array(
-            'post_type' => 'photo',
-            'posts_per_page' => 12,
-        );
+            'post_type' => 'photo',          // Type de publication personnalisée (photo) 
+            'posts_per_page' => 12,          // Nombre de publications à afficher par page
+            'orderby' => 'date',             // Tri des publications par date
+            'order' => 'DESC',               // Ordre de tri descendant - (de la plus récente à la plus ancienne).
+        );        
 
         $custom_posts_query = new WP_Query($args_custom_posts);
 
@@ -22,12 +25,12 @@
                             <?php the_post_thumbnail(); ?>
                             <!-- Section | Overlay Catalogue -->
                             <div class="thumbnail-overlay">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_eye.png" alt="Eye Icon"> <!-- Eye icon | Information Photo -->
-                                <i class="fas fa-expand-arrows-alt fullscreen-icon"></i><!-- Fullscreen icon -->
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_eye.png" alt="Icône de l'œil"> <!-- Icône de l'œil | Informations sur la photo -->
+                                <i class="fas fa-expand-arrows-alt fullscreen-icon"></i><!-- Icône plein écran -->
                                 <?php
                                 // Récupère la référence et la catégorie de l'image associée.
-                                $related_reference_photo = get_field('reference_photo');
-                                $related_categories = get_the_terms(get_the_ID(), 'categorie');
+                                $related_reference_photo = get_field('reference_photo');   // Récupère la référence de la photo
+                                $related_categories = get_the_terms(get_the_ID(), 'categorie');   // Récupère les catégories de la photo
                                 $related_category_names = array();
 
                                 if ($related_categories) {
@@ -36,6 +39,7 @@
                                     }
                                 }
                                 ?>
+                                <!-- Overlay | Récupère la Référence et la Catégorie de l'image associée au survol-->
                                 <div class="photo-info">
                                     <div class="photo-info-left">
                                         <p><?php echo esc_html($related_reference_photo); ?></p>
@@ -45,17 +49,19 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php endif; ?>
-                </a>
-            </div>
+                        </a>
+                    </div>
+                <?php endif; ?>
+            </a>
+        </div>
         <?php endwhile; ?>
 
-        <?php wp_reset_postdata(); // Restaurer les données de publication d'origine ?>
+        <?php wp_reset_postdata(); // Rétablir les données de publication d'origine ?>
     </div>
     <!-- Ajouter un lien pour afficher toutes les publications personnalisées -->
     <div class="view-all-button">
         <button id="load-more-posts">Charger plus</button>
     </div>
 </div>
+
 

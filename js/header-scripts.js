@@ -14,73 +14,62 @@ $('#close-fullscreen-menu-button').click(function() {
 $(document).click(function(event) {
     if (!$('header').has(event.target).length && !$('header').is(event.target)) {
         $('header').removeClass('mobile-menu-opened');
-        console.log('MENU FERMÉ!');
+        // console.log('MENU FERMÉ!');
     }
 });
 
-// SINGLE PHOTO - NAVIGATION PHOTOS (HVOVER)
+// SINGLE PHOTO - NAVIGATION PHOTOS (HOVER)
+if( $('.right-container').length ){
+    // Mise en cache des éléments fréquemment utilisés
+    const wrapper = document.querySelector('.thumbnail-wrapper');
+    const prevArrowLink = document.getElementById('prev-arrow-link');
+    const nextArrowLink = document.getElementById('next-arrow-link');
 
-function loadThumbnail(direction) {
-    // Sélectionne l'élément HTML avec la classe 'thumbnail-wrapper'
-    var wrapper = document.querySelector('.thumbnail-wrapper');
+    // Créez un objet Image pour précharger la vignette actuelle
+    const currentThumbnailPreloader = new Image();
+    const currentThumbnailURL = document.querySelector('.right-container a.photo img').getAttribute('src');
+    currentThumbnailPreloader.src = currentThumbnailURL;
+    currentThumbnailPreloader.onload = function () {
+        preloadCurrentThumbnail(); // Déclenche le chargement initial après la précharge
+    };
 
-    // Crée un nouvel élément image (balise <img>)
-    var thumbnail = document.createElement('img');
-
-    // Sélectionne le lien de la flèche en fonction de la direction (précédent ou suivant)
-    var arrowLink = (direction === 'prev') ? document.getElementById('prev-arrow-link') : document.getElementById('next-arrow-link');
-
-    // Récupère l'URL de la miniature à partir de l'attribut 'data-thumbnail' du lien
-    var thumbnailURL = arrowLink.getAttribute('data-thumbnail');
-
-    // Définit l'URL de la miniature pour l'élément image créé
-    thumbnail.src = thumbnailURL;
-
-    // Affiche l'URL de la miniature dans la console (à des fins de débogage)
-    console.log('URL de la miniature :', thumbnail.src);
-
-    // Supprime tout contenu existant dans le conteneur 'wrapper'
-    while (wrapper.firstChild) {
-        wrapper.removeChild(wrapper.firstChild);
+    // Chargez et affichez une vignette
+    function loadThumbnail(thumbnailURL) {
+        const thumbnail = document.createElement('img');
+        thumbnail.src = thumbnailURL;
+        
+        // Effacez le contenu existant dans le 'container'
+        while (wrapper.firstChild) {
+            wrapper.removeChild(wrapper.firstChild);
+        }
+        
+        // Ajoutez la vignette au 'container'
+        wrapper.appendChild(thumbnail);
     }
 
-    // Ajoute la nouvelle miniature à 'wrapper'
-    wrapper.appendChild(thumbnail);
+    // Préchargez et affichez la vignette de l'article actuel
+    function preloadCurrentThumbnail() {
+        loadThumbnail(currentThumbnailURL);
+    }
+
+    // Gestion des événements pour le survol de la souris
+    function handleMouseover(direction) {
+        const arrowLink = (direction === 'prev') ? prevArrowLink : nextArrowLink;
+        const thumbnailURL = arrowLink.getAttribute('data-thumbnail');
+        loadThumbnail(thumbnailURL);
+    }
+
+    // Gestion des événements pour le départ de la souris
+    function handleMouseout() {
+        preloadCurrentThumbnail();
+    }
+
+    // Déclenchez la précharge de la vignette de l'article actuel lorsque la page se charge
+    window.addEventListener('load', preloadCurrentThumbnail);
+
+    // Attachez des écouteurs d'événements en utilisant la délégation d'événements
+    prevArrowLink.addEventListener('mouseover', () => handleMouseover('prev'));
+    nextArrowLink.addEventListener('mouseover', () => handleMouseover('next'));
+    prevArrowLink.addEventListener('mouseout', handleMouseout);
+    nextArrowLink.addEventListener('mouseout', handleMouseout);
 }
-
-function hideThumbnail() {
-    // Sélectionne l'élément HTML avec la classe 'thumbnail-wrapper'
-    var wrapper = document.querySelector('.thumbnail-wrapper');
-
-    // Supprime tout contenu existant dans le conteneur 'wrapper'
-    while (wrapper.firstChild) {
-        wrapper.removeChild(wrapper.firstChild);
-    }
-}
-
-// Attache des écouteurs d'événements aux liens des flèches
-var prevArrowLink = document.getElementById('prev-arrow-link');
-var nextArrowLink = document.getElementById('next-arrow-link');
-
-// Lorsque la souris survole le lien précédent, charge la miniature précédente
-prevArrowLink.addEventListener('mouseover', function () {
-    loadThumbnail('prev');
-});
-
-// Lorsque la souris quitte le lien précédent, masque la miniature
-prevArrowLink.addEventListener('mouseout', function () {
-    hideThumbnail();
-});
-
-// Lorsque la souris survole le lien suivant, charge la miniature suivante
-nextArrowLink.addEventListener('mouseover', function () {
-    loadThumbnail('next');
-});
-
-// Lorsque la souris quitte le lien suivant, masque la miniature
-nextArrowLink.addEventListener('mouseout', function () {
-    hideThumbnail();
-});
-
-
-

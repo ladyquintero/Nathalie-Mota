@@ -12,19 +12,22 @@ function register_footer_menu() {
 }
 add_action( 'after_setup_theme', 'register_footer_menu' );
 
-// Ajout - Styles (Thème - Page Photo Unique - Accueil - Bloc Photo)
+// Ajout - Styles (Thème - Page Photo Unique - Accueil - Bloc Photo - Lightbox)
 function enqueue_custom_styles() {
     wp_enqueue_style('custom-theme-css', get_template_directory_uri() . '/css/theme.css', array(), '1.0', 'all');
     wp_enqueue_style('custom-single-photo-css', get_template_directory_uri() . '/css/single-photo.css', array(), '1.0', 'all');
     wp_enqueue_style('custom-index-css', get_template_directory_uri() . '/css/index.css', array(), '1.0', 'all');
     wp_enqueue_style('custom-photoblock-css', get_template_directory_uri() . '/css/photo-block.css', array(), '1.0', 'all');
+    wp_enqueue_style('lightbox-single-photo', get_template_directory_uri() . '/css/lightbox-single-photo.css', array(), '1.0', 'all');
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_styles');
 
 // Ajout - Scripts (Modales Accueil - Page Photo Unique - Menu Burger)
 function enqueue_custom_scripts() {
-    wp_enqueue_script('header-scripts', get_template_directory_uri() . '/js/header-scripts.js', array('jquery'), '1.0', true);
-    wp_enqueue_script('modal-scripts', get_template_directory_uri() . '/js/modal-scripts.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('header-scripts', get_template_directory_uri() . '/js/header-scripts.js', array('jquery'), '1.1.1', true);
+    wp_enqueue_script('modal-scripts-index', get_template_directory_uri() . '/js/modal-scripts-index.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('modal-scripts-photo', get_template_directory_uri() . '/js/modal-scripts-photo.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('lightbox-single-photo', get_template_directory_uri() . '/js/lightbox-single-photo.js', array('jquery'), '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 
@@ -41,14 +44,69 @@ function enqueue_infinite_pagination_js() {
 }
 add_action('wp_enqueue_scripts', 'enqueue_infinite_pagination_js');
 
-// Créer une fonction pour charger d'articles - Photo
+// Créer une fonction pour charger des articles - Photo
 function load_more_posts() {
-    $page = $_POST['page']; // Récupère le numéro de page à charger à partir de la requête POST
+    $page = $_GET['page']; // Récupère le numéro de page à charger à partir de la requête GET
+
     $args_custom_posts = array(
-        'post_type' => 'photo', // Type de publication personnalisée à charger (ici, "photo")
-        'posts_per_page' => 12, // Nombre de publications par page
-        'paged' => $page, // Page actuelle à charger
+        'post_type' => 'photo', // Type de publication personnalisée à charger
+        'posts_per_page' => 12, // Nombre de publications à afficher par page
     );
+
+    // Vérification des paramètres de catégorie et de format dans la requête GET
+    if( 
+        $_GET['category'] != NULL && 
+        $_GET['category'] != 'ALL' &&
+        $_GET['format'] != NULL &&
+        $_GET['format'] != 'ALL'
+    ){
+        // Si à la fois la catégorie et le format sont spécifiés, nous créons une requête complexe (opérateur logique "ET")
+        $args_custom_posts['tax_query'] = array(
+            'relation' => 'AND', // Opérateur logique "ET" pour s'assurer que les deux requêtes sont satisfaites
+            array(
+                'taxonomy' => 'categorie',
+                'field'    => 'slug',
+                'terms'    => $_GET['category']
+            ),
+            array(
+                'taxonomy' => 'format',
+                'field'    => 'slug',
+                'terms'    => $_GET['format']
+            )
+        );
+    }else{
+        // Si seule la catégorie est spécifiée
+        if( 
+            $_GET['category'] != NULL && 
+            $_GET['category'] != 'ALL'
+        ){
+            // Crée une requête pour filtrer par catégorie
+            $args_custom_posts['tax_query'] = array(
+                array(
+                    'taxonomy' => 'categorie',
+                    'field'    => 'slug',
+                    'terms'    => $_GET['category']
+                )
+            );
+        }
+        // Si seul le format est spécifié
+        if(
+            $_GET['format'] != NULL &&
+            $_GET['format'] != 'ALL' 
+        ){
+            // Crée une requête pour filtrer par format
+            $args_custom_posts['tax_query'] = array(
+                array(
+                    'taxonomy' => 'format',
+                    'field'    => 'slug',
+                    'terms'    => $_GET['format']
+                )
+            );
+        }
+    }
+    $args_custom_posts['orderby'] = 'date'; // Trie les publications par date
+    $args_custom_posts['order'] = $_GET['dateSort'] != 'ALL' ? $_GET['dateSort'] : 'DESC'; // Ordonne par ordre descendant si le tri par date est spécifié
+    $args_custom_posts['paged'] = $page; // Gère la pagination en fonction du numéro de page
 
     $custom_posts_query = new WP_Query($args_custom_posts); // Effectue une requête WordPress pour obtenir les publications personnalisées
 
@@ -88,11 +146,12 @@ function load_more_posts() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        <?php endif; ?>
-                    </a>
-                </div>
-            <?php
+                            </a>
+                        </div>
+                    <?php endif; ?>
+                </a>
+            </div>
+        <?php
             // Fin de la structure du contenu de l'article
         endwhile;
         wp_reset_postdata(); // Réinitialise les données des publications personnalisées
@@ -104,8 +163,4 @@ function load_more_posts() {
 
 add_action('wp_ajax_load_more_posts', 'load_more_posts'); // Associe la fonction 'load_more_posts' à l'action AJAX 'wp_ajax_load_more_posts'
 add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts'); // Associe la fonction 'load_more_posts' à l'action AJAX 'wp_ajax_nopriv_load_more_posts'
-
-?>
-
-
 

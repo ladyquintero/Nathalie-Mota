@@ -1,10 +1,11 @@
-/* Style | Conteneur du Héros */
+/* IMAGE HERO - ACCUEIL */
+/* Style | Conteneur Hero Image */
 .hero {
     position: relative;
     height: 782px;
 }
 
-/* Style | Image du Héros */
+/* Style | Hero Image */
 .hero-image {
     background-size: cover;
     background-position: center;
@@ -23,7 +24,7 @@
     height: auto;
 }
 
-/* Styles pour Mobile */
+/* Styles pour Mobile - Hero Image */
 @media screen and (max-width: 768px) {
     .hero {
         height: 400px; /* Hauteur - Mobiles */
