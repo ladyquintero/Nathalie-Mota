@@ -1,5 +1,5 @@
 if( jQuery('#myBtn-photo').length ){
-    // MODAL - SINGLE-PHOTO
+    // MODAL CONTACT - SINGLE-PHOTO
     var photoModal = document.getElementById('myModal-photo');
     var photoBtn = document.getElementById("myBtn-photo");
     var photoSpan = document.getElementsByClassName("close-photo")[0];
@@ -23,6 +23,10 @@ if( jQuery('#myBtn-photo').length ){
 
     // MISE À JOUR DU CHAMP #REF-PHOTO DANS LE FORMULAIRE DE CONTACT 7
     jQuery(document).ready(function($) {
-        $("#ref-photo").val(acfReferencePhoto);
+        $("#myBtn-photo").on('click', function() {
+            // Définissez la valeur de #ref-photo lorsque le bouton est cliqué.
+            $("#ref-photo").val(acfReferencePhoto);
+        });
     });
+    
 }

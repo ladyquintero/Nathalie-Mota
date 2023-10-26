@@ -89,6 +89,8 @@
 @media (max-width: 768px) {
     .modal-content-photo {
         max-width: 95%;
+        /*overflow-y: auto !important;*/
+        /*max-height: 71vh !important;*/
     }
     .left-contact {
         display: flex;
@@ -188,6 +190,10 @@
     .right-container {
         flex-basis: 100%;
         max-width: 100%;
+    }
+
+    .left-container h1 {
+        font-size: 44px;
     }
 
     .zone-contenu.mobile-first {
@@ -335,21 +341,21 @@
     object-fit: cover;
 }
 
-/* Styles for screens smaller than 768px (adjust this breakpoint as needed) */
+/* Styles pour les écrans de largeur inférieure à 768 pixels */
+
 @media (max-width: 768px) {
-    /* Change the layout of the image containers to a single column */
+    /* Modifier la mise en page des conteneurs d'images en une seule colonne */
     .image-container {
         display: block;
     }
 
-    /* Adjust the width and spacing for individual related images */
+    /* Ajuster la largeur et l'espacement des images associées individuelles */
     .related-image {
-        flex: 1; /* Full width for single column layout */
-        margin-right: 0; /* Remove right margin for spacing */
-        margin-bottom: 10px; /* Add bottom margin for spacing */
+        flex: 1; /* Pleine largeur - une seule colonne */
+        margin-right: 0; /* Supprimer la marge droite pour l'espacement */
+        margin-bottom: 10px; /* Ajouter une marge inférieure pour l'espacement */
     }
 
-    /* Additional style adjustments for small screens can be made here */
 }
 
 /* Styles | Conteneur du bouton de la page d'accueil */
@@ -388,7 +394,7 @@
     background-color: #000000;
 }
 
-/* Styles | Overlay and Icons */
+/* Styles | Superposition et Icônes */
 .thumbnail-overlay-single {
     position: absolute;
     top: 0;

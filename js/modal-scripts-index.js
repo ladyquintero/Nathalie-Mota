@@ -1,4 +1,4 @@
-    // MODAL - HEADER
+    // MODALE CONTACT - HEADER
     var headerModal = document.getElementById('myModal');
     var headerBtn = document.getElementById("open-modal-button-header");
     var headerSpan = document.getElementsByClassName("close")[0];

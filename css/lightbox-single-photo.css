@@ -4,11 +4,11 @@
 .btn-close {
   position: fixed;
   top: 20px;
-  right: 20px;
+  right: 320px;
   color: #fff;
-  font-family: 'Space Mono', monospace;
+  font-family: 'Montserrat', monospace;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 400;
   padding: 15px;
   max-width: 40px;
   max-height: 40px;
@@ -21,12 +21,22 @@
 }
 
 .btn-close:hover {
-  transform: scale(1.2);
+  font-weight: 600;
 }
 
 .right-container img {
   cursor: pointer;
 }
+
+.photo {
+  transition: filter 0.3s; /* Ajouter une transition douce pour le filtre */
+}
+
+.photo:hover {
+  filter: brightness(0.7); /* Assombrit l'image en réduisant la luminosité à 70% */
+}
+
+
 
 .modal-container {
   display: none !important;
@@ -52,23 +62,47 @@
   max-height: 80vh;
 }
 
-.left-arrow {
-  margin-right: 20px; 
-}
-
-.right-arrow {
-  margin-left: 20px; 
-}
-
 .left-arrow,
 .right-arrow {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
+  width: auto;
+  display: flex; /* Flèches - centrage vertical */
   align-items: center;
-  padding: 10px;
 }
+
+.left-arrow .arrow-link,
+.right-arrow .arrow-link {
+  display: flex; /* Contenu horizontalement */
+  align-items: center; /* Centrer verticalement */
+  text-decoration: none;
+  color: white;
+  outline: none;
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 20px;
+}
+
+.left-arrow > a > span:hover,
+.right-arrow > a > span:hover {
+  font-weight: 700;
+}
+
+
+.left-arrow .arrow-img-gauche {
+  filter: invert(100%); /* Inverser couleurs de l'image*/
+  margin-right: 10px;
+}
+
+.left-arrow .text {
+  order: 1; /* Placer le texte à droite de la flèche */
+}
+
+.right-arrow .arrow-img-droite {
+  filter: invert(100%); /* Inverser couleurs de l'image*/
+  margin-left: 10px;
+  order: 2; /* Placer la flèche à la fin, du côté droit */
+}
+
 
 .info-photo {
   display: flex;
@@ -88,14 +122,6 @@
   text-transform: uppercase !important;
 }
 
-.modal-container a {
-  text-decoration: none;
-  color: white;
-  outline: none;
-  font-family: 'Space Mono', monospace;
-  font-size: 14px;
-  font-weight: 400;
-}
 
 /* Appliquer des styles spécifiques aux appareils mobiles dans une requête media */
 @media (max-width: 768px) {
@@ -127,8 +153,8 @@
       height: 40px;
       padding: 10px;
       position: absolute;
-      top: 50%;
-      left: 10px; /* Positionner la flèche de gauche à gauche */
+      top: 44%;
+      left: -12px; /* Positionner la flèche de gauche à gauche */
       transform: translateY(-50%); /* Centrer verticalement la flèche */
     }
   
@@ -137,8 +163,8 @@
       height: 40px;
       padding: 10px;
       position: absolute;
-      top: 50%;
-      right: 10px; /* Positionner la flèche de droite à droite */
+      top: 44%;
+      right: 28px; /* Positionner la flèche de droite à droite */
       transform: translateY(-50%); /* Centrer verticalement la flèche */
     }
   

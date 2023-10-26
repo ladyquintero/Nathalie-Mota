@@ -30,12 +30,12 @@
         $('.left-arrow > a').attr('href', refLeft + '?modal=1');
         $('.right-arrow > a').attr('href', refRight + '?modal=1');
         
-        // Ajoute "PREV" à la flèche de gauche si le span n'existe pas encore
+        // Ajoute "Précédente" à la flèche de gauche si le span n'existe pas encore
         if (!$('.left-arrow > a > span').length) {
             $('.left-arrow > a').append('<span>Précédente</span>');
         }
         
-        // Ajoute "NEXT" à la flèche de droite si le span n'existe pas encore
+        // Ajoute "Suivante" à la flèche de droite si le span n'existe pas encore
         if (!$('.right-arrow > a > span').length) {
             $('.right-arrow > a').append('<span>Suivante</span>');
         }

@@ -1,11 +1,11 @@
-/* HEADER - FOOTER - MODALES - CONTACT FORM 7*/
+/* EN-TÊTE - PIED DE PAGE - MODALES - FORMULAIRE DE CONTACT 7 */
 /* Styles | Global */
 body {
     margin-top: 90px;
     background-color: #FFFFFF;
 }
 
-/* Styles | Header */
+/* Styles | En-Tête */
 header {
     position: fixed;
     top: 0;
@@ -20,26 +20,26 @@ header {
     z-index: 1000;
 }
 
-/* Styles | Logo Header */
+/* Styles | Logo de l'En-Tête */
 .header-logo img {
     max-width: 300px;
 }
 
-/* Styles | Logo Container */
+/* Styles | Conteneur de Logo */
 .logo-container img {
     padding-left: 21px;
     padding-top: 35px;
     width: 212px;
 }
 
-/* Styles | Header Menu */
+/* Styles | Menu de l'En-Tête */
 .header-menu {
     display: flex;
     align-items: center;
     padding: 0;
 }
 
-/* Styles | Header & Footer Menu Liens */
+/* Styles | Liens du Menu de l'En-Tête et du Pied de Page */
 .header-menu li a,
 .footer-menu li a,
 #open-modal-button-header,
@@ -54,7 +54,7 @@ header {
     text-align: left;
 }
 
-/* Styles | Header & Footer Menu Listes */
+/* Styles | Listes du Menu de l'En-Tête et du Pied de Page */
 .header-menu ul,
 .footer-menu ul {
     list-style: none;
@@ -63,14 +63,14 @@ header {
     display: flex;
 }
 
-/* Styles | Header & Footer Menu Liste Items */
+/* Styles | Éléments de Liste du Menu de l'En-Tête et du Pied de Page */
 
 .header-menu li,
 .footer-menu li {
     margin-right: 20px;
 }
 
-/* Styles | Header & Footer Button Styles */
+/* Styles | Styles de Boutons de l'En-Tête et du Pied de Page */
 #open-modal-button-header,
 #open-modal-button-footer {
     background-color: transparent;
@@ -79,7 +79,7 @@ header {
     cursor: pointer;
 }
 
-/* Styles | Hover Styles for Buttons & Liens */
+/* Styles | Styles de Survole pour Boutons et Liens */
 #open-modal-button-header:hover,
 .header-menu li a:hover,
 .footer-menu a:hover {
@@ -88,13 +88,13 @@ header {
     font-weight: 700;
 }
 
-/* Styles | Hover Styles for Close Buttons */
+/* Styles | Styles de Survole pour Boutons de Fermeture */
 .close:hover,
 .close-button:hover {
     text-decoration: underline;
 }
 
-/* Styles | FOOTER */
+/* Styles | PIED DE PAGE */
 .footer-menu {
     text-align: center;
     margin-top: 20px;
@@ -105,28 +105,28 @@ header {
     padding-top: 10px;
 }
 
-/* Styles | Footer Menu List Items */
+/* Styles | Éléments de Liste du Menu du Pied de Page */
 .footer-menu li {
     margin: 0 15px;
     display: inline;
 }
 
-/* Styles | Footer Menu Liens */
+/* Styles | Liens du Menu du Pied de Page */
 .footer-menu a {
     text-decoration: none;
     padding-top: 5px;
 }
 
-//* Styles | MOBILE - FOOTER */
+/* Styles | MOBILE - PIED DE PAGE */
 @media screen and (max-width: 767px) {
     .footer-menu {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center; /* Center horizontally */
-        align-items: center; /* Center vertically */
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         margin-top: 20px;
         padding-top: 10px;
+        flex-flow: column;
     }
 
     .footer-menu ul {
@@ -141,7 +141,8 @@ header {
 }
 
 
-/* Styles | Animation Modale */
+
+/* Styles | Animation de Modale */
 @-webkit-keyframes animatetop {
     from {
         top: 0;
@@ -179,7 +180,7 @@ header {
     overflow: auto;
 }
 
-/* Styles | MODALE - CONTENU */
+/* Styles | CONTENU DE LA MODALE */
 .modal-content {
     position: fixed;
     top: 50%;
@@ -197,7 +198,7 @@ header {
     animation-timing-function: ease;
 }
 
-/* Styles | Image dans Modale - Banniere */
+/* Styles | Image dans la Modale - Bannière */
 .modal-content img {
     display: block;
     width: 100%;
@@ -207,7 +208,7 @@ header {
     margin-right: auto;
 }
 
-/* Styles | Close Button Styles */
+/* Styles | Styles de Boutons de Fermeture */
 .close {
     position: absolute;
     top: 20px;
@@ -226,6 +227,8 @@ header {
 @media (max-width: 768px) {
     .modal-content {
         max-width: 95%;
+        overflow-y: auto; /* Vertical scrolling */
+        max-height: 67vh; /* Contenu visible */
     }
 }
 
@@ -238,7 +241,7 @@ form {
     margin: 0 auto;
 }
 
-/* Styles | Contact Form 7 Input Styles */
+/* Styles | Styles des Entrées du Contact Form 7 */
 input[type=email],
 input[type=text],
 select,
@@ -247,7 +250,7 @@ textarea {
     border-radius: 7px;
 }
 
-/* Styles | Contact Form 7 Submit Button Styles */
+/* Styles | Styles du Bouton Soumettre du Contact Form 7 */
 input[type=submit] {
     display: block;
     width: 263px;
@@ -268,17 +271,17 @@ input[type=submit] {
     color: #000000;
 }
 
-/* Styles | Contact Form 7 Submit Button Hover Styles */
+/* Styles | Styles de Survole du Bouton Soumettre du Contact Form 7 */
 input[type=submit]:hover {
     background-color: #cccaca;
 }
 
-/* Styles | Contact Form 7 Error Messages */
+/* Styles | Messages d'Erreur du Contact Form 7 */
 .wpcf7-not-valid-tip {
     color: #B8BBC2;
 }
 
-/* Styles | Contact Form 7 Response Output Styles */
+/* Styles | Styles de Sortie de Réponse du Contact Form 7 */
 .wpcf7 form.invalid .wpcf7-response-output,
 .wpcf7 form.unaccepted .wpcf7-response-output,
 .wpcf7 form.payment-required .wpcf7-response-output,
@@ -290,7 +293,7 @@ input[type=submit]:hover {
     border: none;
 }
 
-/* Styles | Labels for Contact Form 7 */
+/* Styles | Étiquettes pour le Contact Form 7 */
 .wpcf7 input[type="text"],
 .wpcf7 input[type="email"],
 .wpcf7 textarea {
@@ -302,7 +305,7 @@ input[type=submit]:hover {
     padding: 5px 10px;
 }
 
-/* Styles | Label Styles for Contact Form 7 */
+/* Styles | Styles d'Étiquettes pour le Contact Form 7 */
 .wpcf7 input[type="text"],
 .wpcf7 input[type="email"],
 .wpcf7 textarea,
@@ -315,12 +318,12 @@ input[type=submit]:hover {
     text-align: left;
 }
 
-/* Styles | Message Label Style for Contact Form 7 */
+/* Styles | Style d'Étiquette de Message pour le Contact Form 7 */
 .wpcf7 textarea[name="your-message"] {
     height: 190px;
 }
 
-/* Styles | MOBILE - BURGER BUTTON */
+/* Styles | MOBILE - BOUTON BURGER */
 .mobile-menu-button {
     display: none;
     cursor: pointer;
@@ -383,8 +386,7 @@ input[type=submit]:hover {
         top: 0;
     }
     
-    .header-menu ul,
-    .footer-menu ul {
+    .header-menu ul {
         list-style: none;
         margin: 0;
         padding: 0;
@@ -394,10 +396,21 @@ input[type=submit]:hover {
         text-align: center;
     }
 
+    .footer-menu ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        text-align: center;
+        flex-flow: column;
+    }
+
      
     .mobile-menu-opened .header-menu {
         background: #E00000;
-        height: 100vh;
+        height: 110vh;
         left: 0;
         top: 0;
         position: fixed;
@@ -464,5 +477,18 @@ input[type=submit]:hover {
     .close-button {
         display: none;
     }
+}
+
+
+/* MODÈLE - ARTICLE */
+
+main {
+    padding: 20px;
+    font-family: 'Space Mono';
+}
+
+.main-content-post {
+    margin: 0 auto;
+    max-width: 800px;
 }
 

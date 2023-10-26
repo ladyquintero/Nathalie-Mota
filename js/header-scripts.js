@@ -1,4 +1,5 @@
-// MENU BURGER
+// MENU BURGER MOBILE
+// Gérer le clic sur le bouton d'ouverture du menu
 $('#open-fullscreen-menu-button').click(function(e) {
     e.stopPropagation(); // Empêche la propagation de l'événement pour éviter la fermeture
     $('header').toggleClass('mobile-menu-opened');
@@ -6,11 +7,13 @@ $('#open-fullscreen-menu-button').click(function(e) {
 });
 
 // FERMER MENU - CLIQUER SUR LE BOUTON DE FERMETURE
+// Gérer le clic sur le bouton de fermeture du menu
 $('#close-fullscreen-menu-button').click(function() {
     $('header').removeClass('mobile-menu-opened');
     console.log('MENU FERMÉ!');
 });
 
+// Fermer le menu lors d'un clic en dehors de celui-ci
 $(document).click(function(event) {
     if (!$('header').has(event.target).length && !$('header').is(event.target)) {
         $('header').removeClass('mobile-menu-opened');
@@ -18,14 +21,14 @@ $(document).click(function(event) {
     }
 });
 
-// SINGLE PHOTO - NAVIGATION PHOTOS (HOVER)
+// PHOTO UNIQUE - NAVIGATION DES PHOTOS (SURVOL)
 if( $('.right-container').length ){
     // Mise en cache des éléments fréquemment utilisés
     const wrapper = document.querySelector('.thumbnail-wrapper');
     const prevArrowLink = document.getElementById('prev-arrow-link');
     const nextArrowLink = document.getElementById('next-arrow-link');
 
-    // Créez un objet Image pour précharger la vignette actuelle
+    // Crée un objet Image pour précharger la vignette actuelle
     const currentThumbnailPreloader = new Image();
     const currentThumbnailURL = document.querySelector('.right-container a.photo img').getAttribute('src');
     currentThumbnailPreloader.src = currentThumbnailURL;
@@ -33,21 +36,21 @@ if( $('.right-container').length ){
         preloadCurrentThumbnail(); // Déclenche le chargement initial après la précharge
     };
 
-    // Chargez et affichez une vignette
+    // Charge et affiche une vignette
     function loadThumbnail(thumbnailURL) {
         const thumbnail = document.createElement('img');
         thumbnail.src = thumbnailURL;
         
-        // Effacez le contenu existant dans le 'container'
+        // Efface le contenu existant dans le 'container'
         while (wrapper.firstChild) {
             wrapper.removeChild(wrapper.firstChild);
         }
         
-        // Ajoutez la vignette au 'container'
+        // Ajoute la vignette au 'container'
         wrapper.appendChild(thumbnail);
     }
 
-    // Préchargez et affichez la vignette de l'article actuel
+    // Précharge et affiche la vignette de l'article actuel
     function preloadCurrentThumbnail() {
         loadThumbnail(currentThumbnailURL);
     }
@@ -64,10 +67,10 @@ if( $('.right-container').length ){
         preloadCurrentThumbnail();
     }
 
-    // Déclenchez la précharge de la vignette de l'article actuel lorsque la page se charge
+    // Déclenche la précharge de la vignette de l'article actuel lorsque la page se charge
     window.addEventListener('load', preloadCurrentThumbnail);
 
-    // Attachez des écouteurs d'événements en utilisant la délégation d'événements
+    // Attache des écouteurs d'événements en utilisant la délégation d'événements
     prevArrowLink.addEventListener('mouseover', () => handleMouseover('prev'));
     nextArrowLink.addEventListener('mouseover', () => handleMouseover('next'));
     prevArrowLink.addEventListener('mouseout', handleMouseout);

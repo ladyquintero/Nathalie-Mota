@@ -116,8 +116,11 @@
     max-width: 1126px;  /* Largeur maximale - Section Filtres */
     margin: 0 auto;  
     text-align: center;  
-    padding: 40px;  
-    padding-bottom: 25px;  
+    /*padding-right: 25px; */ 
+    /*padding-left: 25px; */
+    padding-top: 40px; 
+    display: flex; 
+    justify-content: start;
 }
 
 .filters-and-sort label, .filters-and-sort select {
@@ -128,6 +131,14 @@
     letter-spacing: 0.03em;  
     text-align: left;  
     text-transform: uppercase;  
+}
+
+#category-filter{
+    margin-right: 42px;
+}
+
+#date-sort{
+    margin-left: 310px;
 }
 
 #category-filter,
@@ -142,6 +153,28 @@
     justify-content: space-between;
 }
 
+
+
+/* Media query - Filtres */
+@media (max-width: 768px) {
+    .filters-and-sort {
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 20px; 
+    }
+
+    #category-filter,
+    #format-filter,
+    #date-sort{
+        margin-bottom: 0; 
+}
+
+    #category-filter,
+    #date-sort{
+        margin: 10px 0;
+    }
+
+}
 /* Styles for screens smaller than 768px*/
 @media (max-width: 768px) {
     /* Remove flex layout and adjust the width for individual CPT Thumbnails */

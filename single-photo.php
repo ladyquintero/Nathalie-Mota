@@ -96,12 +96,12 @@ get_header();
         <!-- Section | Photo [data-lightbox="image-gallery"]-->
         <div class="right-container">
             <?php if (has_post_thumbnail()) : ?>
-                <a data-href="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'large')[0]; ?>" data-lightbox="image-gallery" class="photo">
+                <a data-href="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'large')[0]; ?>" class="photo">
                     <?php the_post_thumbnail(); ?>
                 </a>
                 <i class="fas fa-expand-arrows-alt fullscreen-icon"></i><!-- Fullscreen icon -->
             <?php endif; ?>
-            <i class="fas fa-expand-arrows-alt fullscreen-icon"></i><!-- Icône plein écran -->
+            
         </div>
     </div>
     <!-- Section | Contact & Navigation Photos -->
@@ -242,5 +242,7 @@ get_header();
         </div>
     </div>
 </main>
+<script src="<?php echo get_template_directory_uri(); ?>/js/modal-scripts-photo.js"></script>
 
 <?php get_footer(); ?>
+

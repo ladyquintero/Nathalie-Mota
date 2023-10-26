@@ -24,7 +24,7 @@
     height: auto;
 }
 
-/* Styles pour Mobile - Hero Image */
+/* Styles | Mobile - Hero Image */
 @media screen and (max-width: 768px) {
     .hero {
         height: 400px; /* Hauteur - Mobiles */

@@ -1,4 +1,4 @@
-// LOAD MORE POSTS + FILTRES (FUNCTIONS.PHP)
+// CHARGER PLUS (PHOTOS) + FILTRES (FUNCTIONS.PHP)
 let loading = false; // Indique si le chargement est en cours ou non
 const $loadMoreButton = $('#load-more-posts'); // Sélectionne le bouton "Charger plus"
 const $container = $('.thumbnail-container-accueil'); // Sélectionne le conteneur de vignettes
