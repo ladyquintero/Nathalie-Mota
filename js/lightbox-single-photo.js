@@ -1,3 +1,9 @@
+/* 
+   Nom du fichier : lightbox-single-photo.js
+   Auteur : Lady Quintero
+   Date de création : Septembre - Octobre 2023
+   Description : Ce script gère la fonctionnalité de la lightbox pour la navigation des photos.
+*/
 // LIGHTBOX - NAVIGATION PHOTOS 
     // Ajouter une division modale lorsque l'on clique sur une image dans .right-container
     $('.right-container img').click(function(){

@@ -1,3 +1,10 @@
+/* 
+   Nom du fichier : infinite-pagination.js
+   Auteur : Lady Quintero
+   Date de création : Septembre - Octobre 2023
+   Description : Ce script gère le chargement de plus de publications (photos) 
+   ainsi que l'application de filtres sur la page, à partir du fichier functions.php.
+*/
 // CHARGER PLUS (PHOTOS) + FILTRES (FUNCTIONS.PHP)
 let loading = false; // Indique si le chargement est en cours ou non
 const $loadMoreButton = $('#load-more-posts'); // Sélectionne le bouton "Charger plus"

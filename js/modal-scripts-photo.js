@@ -1,3 +1,9 @@
+/* 
+   Nom du fichier : modal-scripts-photo.js
+   Auteur : Lady Quintero
+   Date de création : Septembre - Octobre 2023
+   Description : Ce script gère l'affichage et la fermeture de la modal de contact pour une photo unique.
+*/
 if( jQuery('#myBtn-photo').length ){
     // MODAL CONTACT - SINGLE-PHOTO
     var photoModal = document.getElementById('myModal-photo');

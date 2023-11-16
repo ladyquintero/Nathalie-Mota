@@ -1,3 +1,10 @@
+/* 
+   Nom du fichier : header-scripts.js
+   Auteur : Lady Quintero
+   Date de création : Septembre - Octobre 2023
+   Description : Ce script gère le comportement du menu burger mobile, la fermeture du menu, 
+   et la navigation des photos uniques (survol) sur le site.
+*/
 // MENU BURGER MOBILE
 // Gérer le clic sur le bouton d'ouverture du menu
 $('#open-fullscreen-menu-button').click(function(e) {
